@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="js/jquery-3.7.1.min.js"></script>
+    <script src="js/main.js"></script>
+
+</head>
+<body>
+
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+
+    <script>
+        tgdata = window.Telegram.WebApp.initDataUnsafe['user'];
+        fetch(`${domen}/api/login`, {
+        method: 'POST',
+        headers: {'Content-Type': "application/json"},
+        body: JSON.stringify({
+            "tg_id": "2345",// tgdata['id'],
+            'name': "igor",//tgdata['first_name']
+            'card_number': "123412435"
+        })
+    }).then(response => response.json()).then(data => {
+        if (data && data.token) {
+            storage.setItem('authToken', data.token);
+            storage.setItem('tg_id', tgdata['id'])
+            console.log(storage.getItem('authToken')); 
+        } else {
+            console.error("Ответ от сервера не содержит токена.");
+        }
+    })
+    .catch(error => {
+        console.error('Произошла ошибка:', error);
+  });
+    </script>
+    <div class="flex-content">
+        <div class="buttons">
+            <button class="button-choice-page active" style="margin-right: 10px" id="groups" onclick="changePage(1)">Группы</button>
+            <button class="button-choice-page" id="archeve" onclick="changePage(2)">Архив</button>
+        </div>
+    </div>
+    <button class="add-group-btn yellow-button" onclick="openForm('add-group-form')">+</button>
+
+    <div class="scrolling-content">
+        <div class="active-groups main-page">
+        </div>
+        <div class="archeve-groups main-page">
+        </div>
+    </div>
+
+    <div class="add-group-form form">
+        <div class="form-header">
+            <h1 class="form-heading">Новая группа</h1>
+            <button class="close-add-group-button" onclick="closeForm('add-group-form')">
+                <img src="/img/close-button.svg" alt="close">
+            </button>
+        </div>
+        <br>
+        <div class="form-content">
+            <input id="groupname" placeholder="Название">
+            <button class="yellow-button create-group-button" onclick="createGroup($('#groupname').val()); closeForm('add-group-form'); changePage(1);">Создать</button>
+        </div>
+        
+    </div>
+        
+</body>
+</html>
+
+

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="js/jquery-3.7.1.min.js"></script>
+    <script src="js/main.js"></script>
+
+</head>
+<body>
+
+    <div class="flex-content">
+        <button class="to-main-page-btn" onclick="location.href='/'">
+            <img src="/img/back-button.svg">
+        </button>
+        <div class="buttons">
+            <button class="button-choice-page active" style="margin-right: 10px" id="transactions" onclick="changePage(3)">Транзакции</button>
+            <button class="button-choice-page" id="calc" onclick="changePage(4)">Расчёт</button>
+        </div>
+    </div>
+
+
+    <div class="scrolling-content">
+        <button class="add-transaction-btn yellow-button" onclick="openForm('add-transaction-form'); changePage(3);">+</button>
+
+        <div class="transactions-page main-page">
+            <div class="transaction">
+                <button class="toggle-btn">
+                    TITLE   
+                    <span class="arrow">▼</span>
+                </button>
+                <div class="transaction-content">
+                    <div class="transaction-member">
+                        <h1 style="margin: 0 !important">NAME</h1>
+                        <p class='summ'>62384₽</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script>
+            $.each(document.querySelectorAll('.toggle-btn'), function(index, item){
+    item.addEventListener('click', function() {
+        var content = this.nextElementSibling;
+        if (content.style.maxHeight) {
+            content.style.maxHeight = null;
+            this.classList.remove('opened');
+        } else {
+            content.style.maxHeight = content.scrollHeight + 'px';
+            this.classList.add('opened');
+        }
+    });
+});
+        </script>
+
+        <div class="calc-page main-page">
+            
+        </div>
+    </div>
+
+
+    <div class="add-transaction-form form">
+        <div class="form-header">
+            <h1 class="form-heading">Новая транзакция</h1>
+            <button class="close-add-group-button" onclick="closeForm('add-transaction-form')">
+                <img src="/img/close-button.svg" alt="close">
+            </button>
+        </div>
+        <br>
+        <div class="form-content">
+            <input id="transactionName" placeholder="Название">
+            <input id="summ" type="number" placeholder="Сумма">
+            <br>
+            <button class="yellow-button choose-transaction-members" onclick="openForm('choose-transaction-members-form')">Выбрать людей</button>
+            <div class="transaction-members-inputs">
+
+            </div>
+
+            <button class="yellow-button create-transaction" onclick="makeTransaction();">Создать</button>
+        </div>
+        
+    </div>
+
+    <div class="choose-transaction-members-form form">
+        <div class="form-header">
+            <h1 class="form-heading">Выбор людей</h1>
+            <button class="close-add-group-button" onclick="closeForm('choose-transaction-members-form')">
+                <img src="/img/close-button.svg" alt="close">
+            </button>
+        </div>
+        <br>
+        <div class="form-content">
+            <div class="column-content">
+                <div class="members-choose">
+                    <form id="members-form">
+                        <label for="select-all">
+                            <input type="checkbox" id="select-all"> Выбрать все
+                        </label>
+                        <br><br>
+                        <div id="members-list">
+
+                        </div>
+                    </form>
+                
+                </div>
+                <button class="yellow-button choose-transaction-members-done-button" onclick="updateSelectedMembers(); closeForm('choose-transaction-members-form')">Готово</button>
+            </div>
+        </div>
+        
+    </div>
+    
+    <script>
+        renderGroupPage();
+    </script>
+</body>
+</html> 
+
+

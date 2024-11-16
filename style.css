@@ -1,0 +1,346 @@
+
+
+:root{
+    --yellow-color: #FFDD2D;
+    --black-color: #222424;
+    --grey-color: #444;
+    --white-color: white;
+    --blue-color: #428BF9;
+}
+
+
+
+body{
+    background-color: var(--grey-color);
+    font-family: "Rubik Mono One", monospace;
+    padding: 0;
+}
+
+.main-page{
+    width: min(100vw - 50px, 600px - 50px);
+    min-width:min(100vw - 50px, 600px - 50px);
+    margin: 20px;
+    margin-top: 80px;
+    min-height: 100vh;
+}
+
+.group{
+    background-color: var(--black-color);
+    border-radius: 15px;
+    padding: 15px;
+    margin-bottom: 5px;
+}
+
+h1.group-heading{
+    color: var(--white-color);
+    font-weight: 1000;
+    margin: 5px !important;
+}
+
+
+.scrolling-content{
+    width: min(100vw - 10px, 600px - 10px);
+    overflow-x:hidden;
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    scroll-behavior: smooth;
+}
+
+.buttons{
+    margin-left: 10px;
+    background-color: var(--black-color);
+    min-height: 40px;
+    border-radius: 30px;
+    border: 0;
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+}
+
+button.button-choice-page, button.button-choice-page:focus-visible{
+    min-height: 40px;
+    border-radius: 20px;
+    border: 0;
+    font-weight: bold;
+    min-width: 30vw;  
+    transition: 0.5s ease;  
+    color: black;
+    background-color: var(--white-color);
+    min-height: 50px;
+    font-size: 1.2rem;
+
+}
+
+button.button-choice-page.active{
+    background-color: var(--yellow-color);
+    color: black;
+}
+
+.add-group-btn{
+    width: 65px;
+    height: 65px !important;
+    position: fixed;
+    font-size: 2.5rem;
+
+    bottom: 10px;
+    right: 10px;
+}
+
+.form{
+    background-color: var(--white-color);
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    padding: 15px;
+
+    position: fixed;
+}
+
+h1.form-heading{
+    color: var(--black-color);
+    font-weight: 1000;
+    margin: 5px !important;
+}
+
+.yellow-button{
+    height: 50px;
+    background-color: var(--yellow-color);
+    
+    color: var(--black-color);
+    border-radius: 20px;
+    border: 0;
+    font-size: 1.2rem;
+    font-weight: bold;
+
+}
+
+.add-group-form{
+    width: calc(100vw - 30px);
+    left: 0;
+    bottom: -224px;
+    transition: 0.4s ease-out;
+}
+.create-group-button{
+    width: 100%;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+input, input:focus-visible{
+    width: calc(100% - 25px);
+    height: 20px;
+    font-size: 1.5rem;
+    border-radius: 15px;
+    font-weight: bold;
+    margin-bottom: 5px;
+    padding: 10px;
+    outline: 0;
+}
+
+.form-header{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+}
+
+.close-add-group-button img{
+    width: 30px;
+    height: 30px;
+}
+
+.close-add-group-button{
+    border: 0;
+    background-color: white;
+}
+
+.add-transaction-btn{
+    min-width: 90vw;
+    text-align: center;
+    bottom: 10px;
+    left: calc(5vw);
+    position: fixed;
+    font-size: 2.5rem;
+}
+
+.to-main-page-btn{
+    height: 50px;
+    width: 50px;
+    border-radius: 25px;
+    background-color: white;
+    border: 0;
+    margin-top: 10px;
+}
+
+.to-main-page-btn img{
+    width: 40px;
+    height: 40px;
+
+}
+
+.flex-content{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    position: fixed;
+    width: calc(100vw - 10px);
+    justify-content: space-around;
+}
+
+.add-transaction-form{
+    width: calc(100vw - 30px);
+    left: 0;
+    bottom: calc(-95vh - 15px);
+    transition: 0.25s ease-out;
+    min-height: calc(95vh - 30px);
+}
+
+button.create-transaction{
+    width: 100%;
+}
+
+button.choose-transaction-members, button.choose-transaction-members-done-button{
+    width: 100%;
+}
+
+.choose-transaction-members-form{
+    width: calc(100vw - 30px);
+    left: 0;
+    bottom: calc(-95vh - 15px);
+    transition: 0.25s ease-out;
+    min-height: calc(95vh - 30px);
+}
+
+.column-content{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+    align-items: center;
+    min-height: 100%;
+}
+
+.choose-transaction-members-form.form-content{
+    min-height: calc(95vh - 75px);
+}
+
+.members-choose{
+    height: calc(95vh - 150px);
+    overflow-y: hidden;
+}
+
+
+.transaction {
+    width: 80vw;
+    margin: auto;
+    text-align: center;
+    padding: 15px;
+    background-color: var(--black-color);
+    border-radius: 20px;
+}
+
+.toggle-btn {
+    font-size: 16px;
+    cursor: pointer;
+    outline: 0;
+    border: 0;
+    width: 100%;
+    padding: 15px;
+    border-radius: 15px;
+    background-color: var(--grey-color);
+}
+
+.transaction-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-in-out;
+    color: var(--white-color);
+}
+
+.transaction-content p {
+    margin-top: 10px;
+}
+
+.arrow {
+    float: right;
+    transform: rotate(0deg);
+    transition: transform 0.3s;
+    color: white;
+}
+
+.opened .arrow {
+    transform: rotate(180deg);
+}
+
+.toggle-btn{
+    margin: 0 !important;
+    color: var(--white-color);
+    border: 0;
+}
+
+.transaction-member{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    width: 100%;
+    justify-content: space-between;
+}
+
+p.summ{
+    border-radius: 5px;
+    padding: 5px;
+    background-color: var(--grey-color);
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.transaction-member h1{
+    padding: 10px;
+    font-size: 1.2rem;
+}
+
+
+label {
+    display: inline-flex;
+    align-items: center;
+    margin-right: 10px;
+}
+
+input[type="checkbox"] {
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 2px solid #000;
+    background-color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+input[type="checkbox"].checked {
+    background-color: blue;
+    color: white;
+}
+
+input[type="checkbox"].checked::before {
+    content: "\2713";
+    font-size: 16px;
+}
+
+#members-list label {
+    margin-bottom: 5px;
+}
+
+.transaction-member {
+    margin: 5px 0;
+}
+
+.transaction-input {
+    width: 60px;
+}
